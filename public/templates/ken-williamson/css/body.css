@@ -1,0 +1,29 @@
+body{
+    font-family: Arial;    
+    font-size: 12pt;    
+    /*background: gainsboro;*/
+    background-image: url("../img/GoldenGateBridge.jpg");  
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    color: darkslategray;
+}
+
+@media screen and (min-width: 1200px){
+    body{     
+        background-size: 100%; 
+    }
+}
+
+@media screen and (max-width: 1200px){
+    body{     
+        background-size: 100%; 
+    }
+}
+
+@media screen and (max-width: 480px){
+    body{     
+        background-size: 180%; 
+    }
+}

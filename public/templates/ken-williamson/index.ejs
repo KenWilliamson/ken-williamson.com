@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+   <% include head%> 
+    <body>
+        <div class="top-menu">
+            <div class="top-menu-space">
+                <div class="logo">Ken-Williamson.com</div>
+                <div class="logo-img"><img alt="Ken-Williamson.com" src="img/kwilliamson_1.5.jpeg"/></div>
+
+            </div>
+            <div class="top-menu-menu">
+                <nav>
+                    <ul>
+                        <li><a class="active"  href="index.html">Home</a></li>
+                        <li><a href="#section-2">API Design</a></li>
+                        <li><a href="#section-3">Form Processing</a></li>
+                        <li><a href="#section-4">Contact</a></li>  
+                        <%if (loggedIn) { %>
+                            <li><a class="" href="/logout">Logout</a></li>
+                        <% }else{ %>
+                            <li><a class="" href="/login">Login</a></li>
+                        <% } %>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>   
+        <div id="container" class="container">  
+            <% for(var i=0; i<content.articleLocations.FrontPage.length; i++) {%>                
+                <div class="article-wrapper">
+                    <%if (content.articleLocations.FrontPage[i].showTitle) { %>
+                        <div class="article-title"><%= content.articleLocations.FrontPage[i].title %></div>
+                    <% } %>
+                    
+                    <div class="article">
+                        <%- content.articleLocations.FrontPage[i].articleText.text %>
+                    </div> 
+                    <%if (!content.articleLocations.FrontPage[i].fullPage) { %>
+                        <div class="article-read-more"><a class="" href="/article?id=<%= content.articleLocations.FrontPage[i]._id %>">Read More...</a></div>
+                    <% } %>
+                    <% if(content.articleLocations.FrontPage[i].fullPage && content.articleLocations.FrontPage[i].allowComments){ %>
+                        <div class="comment-link"><a class="" href="/article?id=<%= content.articleLocations.FrontPage[i]._id %>">Comments...</a></div>
+                    <% } %>
+                </div>
+
+            <% } %>            
+            
+        </div>       
+    </body>
+</html>
