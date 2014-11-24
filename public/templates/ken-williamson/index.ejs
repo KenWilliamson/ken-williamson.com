@@ -4,17 +4,18 @@
     <body>
         <div class="top-menu">
             <div class="top-menu-space">
-                <div class="logo">Ken-Williamson.com</div>
+                <div class="logo">Ken Williamson</div>
                 <div class="logo-img"><img alt="Ken-Williamson.com" src="img/kwilliamson_1.5.jpeg"/></div>
 
             </div>
             <div class="top-menu-menu">
                 <nav>
                     <ul>
-                        <li><a class="active"  href="index.html">Home</a></li>
-                        <li><a href="#section-2">API Design</a></li>
-                        <li><a href="#section-3">Form Processing</a></li>
-                        <li><a href="#section-4">Contact</a></li>  
+                        <li><a class="active"  href="index.html">Home</a></li>                        
+                        <% for(var i=0; i<content.articleLocations.TopMenu.length; i++) {%>  
+                            <li><a href="/article?id=<%= content.articleLocations.TopMenu[i]._id %>"><%= content.articleLocations.TopMenu[i].title %></a></li>           
+                            
+                        <% } %>  
                         <%if (loggedIn) { %>
                             <li><a class="" href="/logout">Logout</a></li>
                         <% }else{ %>

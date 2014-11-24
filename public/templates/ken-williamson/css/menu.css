@@ -122,7 +122,12 @@ nav ul li ul li a {
         width: 5%;
         text-shadow: 1px 2px lightyellow;
         background: red;*/
-        display: none;
+        color: #5e5e5e;
+        font-size: 12pt;
+        margin: 1% 0 0 12%;
+        text-shadow: 1px 1px black;        
+        width: 30%;        
+        display: block;
     }
     .logo-img{
         font-size: 26pt;
@@ -132,7 +137,7 @@ nav ul li ul li a {
         /*background: red;*/
     }
     .logo-img img{
-        max-width: 95%;
+        max-width: 65%;
     }
     nav ul li a {
         width:20%;
@@ -156,12 +161,12 @@ nav ul li ul li a {
         margin: 0 0 0 20%;
     }
     .logo{
-        /*font-size: 26pt;
+        color: #5e5e5e;
+        font-size: 10pt;
         margin: 1% 0 0 12%;
-        width: 6%;
-        text-shadow: 1px 2px lightyellow;
-        background: blue;*/
-        display: none;
+        text-shadow: 1px 1px black;        
+        width: 30%;        
+        display: block;
     }
     .logo-img{
         font-size: 26pt;
@@ -171,7 +176,7 @@ nav ul li ul li a {
         /*background: blue;*/
     }
     .logo-img img{
-        max-width: 100%;
+        max-width: 65%;
     }
      nav ul li a {
         width:20%;
@@ -196,7 +201,12 @@ nav ul li ul li a {
         
     }
     .logo{
-        display: none;
+        color: #5e5e5e;
+        font-size: 10pt;
+        margin: 1% 0 0 12%;
+        text-shadow: 1px 1px black;        
+        width: 30%;        
+        display: block;
     }
     .logo-img{
         font-size: 22pt;
@@ -206,7 +216,7 @@ nav ul li ul li a {
         /*background: purple;*/
     }
     .logo-img img{
-        max-width: 100%;
+        max-width: 65%;
     }
     nav ul li a {
         width:20%;
@@ -236,17 +246,18 @@ nav ul li ul li a {
         padding: 7px 10px 3px 10px;
     }
     .logo{
-        font-size: 10pt;
+         color: #5e5e5e;
+        font-size: 12pt;
         margin: 1% 0 0 6%;
-        text-shadow: 1px 1px black;
-        display: none;
-        width: 30%;
-    }
-    .logo-img{
+        text-shadow: 1px 1px black;        
+        width: 30%;        
         display: block;
     }
+    .logo-img{
+        display: none;
+    }
     .logo-img img{
-        max-width: 70%;
+        max-width: 30%;
     }
     nav ul li a {
         width:10%;
@@ -256,7 +267,7 @@ nav ul li ul li a {
 
 @media screen and (max-width: 480px){
     .top-menu{
-        height: 60px;
+        height: 70px;
         margin: 0 0 0 0;
         padding: 0 0 0 0;  
     }
@@ -275,14 +286,15 @@ nav ul li ul li a {
         padding: 7px 10px 3px 10px;
     }
     .logo{
-        font-size: 8pt;
+         color: #5e5e5e;
+        font-size: 10pt;
         margin: 1% 0 0 6%;
-        text-shadow: 1px 1px black;
-        display: none;
-        width: 30%;
+        text-shadow: 1px 1px black;        
+        width: 30%;        
+        display: block;
     }
     .logo-img{
-        display: block;
+        display: none;
     }
     .logo-img img{
         max-width: 100%;
