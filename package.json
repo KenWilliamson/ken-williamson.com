@@ -1,17 +1,17 @@
 {
   "name" : "Ken-Williamson.com",
-  "version" : "2.0.0",
-  "description" : "UlboraCms for Ken-williamson.com",
+  "version" : "2.0.4",
+  "description" : "UlboraCms for Ken-Williamson.com",
   "keywords" : [ "Ulbora CMS", "Node.js", "Ken", "Williamson", "micbutton.com" ],
   "author" : {
     "name" : "Ken Williamson",
     "email" : "sales@drivensolutions.com",
     "url" : "http://www.drivensolutions.com/"
   },
-  "homepage" : "http://www.ken-williamson.com",
+  "homepage" : "http://www.ulboracms.org",
   "repository" : {
     "type" : "git",
-    "url" : "https://github.com/KenWilliamson/ken-williamson.com"
+    "url" : "https://github.com/Ulbora/ulboracms"
   },
   "engines" : {
     "node" : ">= 0.6.0",
@@ -26,7 +26,8 @@
     "consolidate": "*",
     "ejs": "*",
     "handlebars": "*",
-    "nodemailer": "*"
+    "nodemailer": "*",
+    "rss": "*"
   },
   "bundleDependencies" : [ ],
   "private" : true,
