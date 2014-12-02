@@ -10,9 +10,10 @@
                 <nav>
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li><a href="/about.html">About</a></li>
-                        <li><a href="/contacts.html">Contacts</a></li>
-                        <li><a class="active" href="/blog.html">Blog</a></li>
+                        <% for(var i=0; i<content.articleLocations.TopMenu.length; i++) {%>  
+                            <li><a href="/article?id=<%= content.articleLocations.TopMenu[i]._id %>"><%= content.articleLocations.TopMenu[i].title %></a></li>           
+                            
+                        <% } %>  
                         <li><a href="/login">Login</a></li>
                     </ul>
                 </nav>
@@ -87,7 +88,7 @@
             </div>              
         </div>
         <div class="footer-long">
-            Copyright 2014 Ulbora CMS | TOS | Powered by Ulbora CMS
+            Copyright 2014 Ken Williamson | Powered by Ulbora CMS
         </div>
     </body>
 </html>

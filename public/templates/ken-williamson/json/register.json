@@ -1,0 +1,21 @@
+{
+    "frontPage": true,
+    "links": true,
+    "articles": true,
+    "products": true,
+    "searchFilter": [
+        {
+            "sectionName": "MainPage",
+            "categoryName": null
+        },
+        {
+            "sectionName": "Tech",
+            "categoryName": null
+        },
+        {
+            "sectionName": "About",
+            "categoryName": null
+        }
+    ]
+
+}
