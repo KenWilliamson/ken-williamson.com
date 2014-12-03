@@ -20,6 +20,9 @@ ulboraCmsApp.config(['$routeProvider', '$locationProvider',
                 }).when('/article/:a', {
                     templateUrl: 'partials/article.html',
                     controller: 'ArticleCtrl'
+                }).when('/menuArticle/:a/:name', {
+                    templateUrl: 'partials/article.html',
+                    controller: 'ArticleCtrl'
                 }).when('/register', {
                     templateUrl: 'partials/register.html',
                     controller: 'RegistrationNewCtrl'
@@ -34,7 +37,7 @@ ulboraCmsApp.config(['$routeProvider', '$locationProvider',
                     controller: 'ProcessFailureCtrl'
                 }).when('/login', {
                     templateUrl: 'partials/login.html',
-                    controller: 'LoginCtrl'
+                    controller: 'LoginScreenCtrl'
                 }).when('/resetPassword', {
                     templateUrl: 'partials/resetPassword.html',
                     controller: 'PasswordResetCtrl'

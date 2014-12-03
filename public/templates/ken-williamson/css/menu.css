@@ -97,9 +97,19 @@ nav ul li ul li a {
     text-align:left; /* Top-level items are centered, but nested list items are left-aligned */
 }
 
-.active{
-    /*background: #ccc;*/
+.activeLink{
+    /*background: #ccc;*/  
+    color: red;
 }
+.activeLink a{
+    /*background: #ccc;*/
+    color: red;
+}
+.activeLink a:visited{
+    /*background: #ccc;*/
+    color: red;
+}
+
 @media screen and (min-width: 1400px){
     .top-menu{
         height: 100px;

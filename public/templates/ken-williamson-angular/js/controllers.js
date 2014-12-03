@@ -6,8 +6,7 @@ var ulboraCmsControllers = angular.module('ulboraCmsControllers', []);
 
 ulboraCmsControllers.controller('MainCtrl', ['$scope', 'checkCreds', '$location', '$http', 'getToken', 'Content', '$sce',
     function MainCtrl($scope, checkCreds, $location, $http, getToken, Content, $sce) {
-        $scope.brandColor = "color: white;";
-
+        $scope.brandColor = "color: white;";        
         if (checkCreds() === true) {
             $scope.loggedIn = true;
         } else {
@@ -32,6 +31,10 @@ ulboraCmsControllers.controller('MainCtrl', ['$scope', 'checkCreds', '$location'
                 },
                 {
                     "sectionName": "About",
+                    "categoryName": null
+                },
+                {
+                    "sectionName": "Menu",
                     "categoryName": null
                 }
             ]
@@ -77,6 +80,7 @@ ulboraCmsControllers.controller('MainCtrl', ['$scope', 'checkCreds', '$location'
                     //$location.path('/loginFailedForm');
                 }
         );
+        $scope.homeActiveClass = "activeLink";
 
     }]);
 
@@ -92,9 +96,11 @@ ulboraCmsControllers.controller('ArticleCtrl', ['$scope', 'checkCreds', '$locati
         $scope.showComments = false;
         $scope.showCommentLoginRequied = false;
         $scope.showfooter = false;
+        $scope.showTags = false;
         $http.defaults.headers.common['Authorization'] = 'Basic ' + getToken();
 
         var articleId = $routeParams.a;
+        $scope.menuLinkName = $routeParams.name;
         Article.get({id: articleId},
         function success(response) {
             //alert($scope.challenge.question);
@@ -106,6 +112,9 @@ ulboraCmsControllers.controller('ArticleCtrl', ['$scope', 'checkCreds', '$locati
 
             if (response.allowComments && !$scope.loggedIn) {
                 $scope.showCommentLoginRequied = true;
+            }
+            if(response.tag !== undefined){
+                $scope.showTags = true;
             }
 
 
@@ -146,15 +155,7 @@ ulboraCmsControllers.controller('ArticleCtrl', ['$scope', 'checkCreds', '$locati
             "products": false,
             "searchFilter": [
                 {
-                    "sectionName": "MainPage",
-                    "categoryName": null
-                },
-                {
-                    "sectionName": "Tech",
-                    "categoryName": null
-                },
-                {
-                    "sectionName": "About",
+                    "sectionName": "Menu",
                     "categoryName": null
                 }
             ]
@@ -200,12 +201,80 @@ ulboraCmsControllers.controller('ArticleCtrl', ['$scope', 'checkCreds', '$locati
         );
 
 
-        $scope.newsActiveClass = "active";
+        //$scope.newsActiveClass = "active";
 
     }]);
 
 
 
+
+ulboraCmsControllers.controller('LoginScreenCtrl', ['$scope', 'checkCreds', 'setCreds', '$location', '$http', 'getToken', 'Login', 'Content',
+    function LoginScreenCtrl($scope, checkCreds, setCreds, $location, $http, getToken, Login, Content) {
+        if (checkCreds() === true) {
+            $scope.loggedIn = true;
+        } else {
+            $scope.loggedIn = false;
+        }
+        $scope.loginFailMessage = "";
+
+        //$http.defaults.headers.common['Authorization'] = 'Basic ' + getToken();
+        //$scope.loginActiveClass = "active";
+        $scope.showfooter = true;
+        var postData = {
+            "frontPage": false,
+            "links": true,
+            "articles": true,
+            "products": false,
+            "searchFilter": [
+                {
+                    "sectionName": "Menu",
+                    "categoryName": null
+                }
+            ]
+
+        };
+        Content.getContent({}, postData,
+                function success(response) {
+                    //alert($scope.challenge.question);
+                    console.log("Success:" + JSON.stringify(response));
+
+                    $scope.content = response;
+                    if (response.links !== null && response.links.length > 0) {
+                        $scope.showLinks = true;
+                    } else {
+                        $scope.showLinks = false;
+                    }
+
+                    if (response.articleLocations.Left.length > 0) {
+                        $scope.showNewsFlash = true;
+                    } else {
+                        $scope.showNewsFlash = false;
+                    }
+
+                    if (response.articleLocations.Right.length > 0) {
+                        $scope.showNews = true;
+                    } else {
+                        $scope.showNews = false;
+                    }
+
+                    for (var cnt = 0; cnt < response.articleLocations.FrontPage.length; cnt++) {
+                        $scope.content.articleLocations.FrontPage[cnt].articleText.text = $sce.trustAsHtml(atob(response.articleLocations.FrontPage[cnt].articleText.text));
+
+                    }
+                    console.log("Html:");
+                    console.log(JSON.stringify($scope.content));
+
+
+                },
+                function error(errorResponse) {
+                    console.log("Error:" + JSON.stringify(errorResponse));
+                    //$location.path('/loginFailedForm');
+                }
+        );
+        
+        $scope.loginActiveClass = "activeLink";
+
+    }]);
 
 ulboraCmsControllers.controller('LoginCtrl', ['$scope', 'checkCreds', 'setCreds', '$location', '$http', 'getToken', 'Login', 'Content',
     function LoginCtrl($scope, checkCreds, setCreds, $location, $http, getToken, Login, Content) {
@@ -218,66 +287,7 @@ ulboraCmsControllers.controller('LoginCtrl', ['$scope', 'checkCreds', 'setCreds'
 
         //$http.defaults.headers.common['Authorization'] = 'Basic ' + getToken();
         $scope.loginActiveClass = "active";
-        $scope.showfooter = true;
-        var postData = {
-            "frontPage": false,
-            "links": true,
-            "articles": true,
-            "products": false,
-            "searchFilter": [
-                {
-                    "sectionName": "MainPage",
-                    "categoryName": null
-                },
-                {
-                    "sectionName": "Tech",
-                    "categoryName": null
-                },
-                {
-                    "sectionName": "About",
-                    "categoryName": null
-                }
-            ]
-
-        };
-        Content.getContent({}, postData,
-                function success(response) {
-                    //alert($scope.challenge.question);
-                    console.log("Success:" + JSON.stringify(response));
-
-                    $scope.content = response;
-                    if (response.links !== null && response.links.length > 0) {
-                        $scope.showLinks = true;
-                    } else {
-                        $scope.showLinks = false;
-                    }
-
-                    if (response.articleLocations.Left.length > 0) {
-                        $scope.showNewsFlash = true;
-                    } else {
-                        $scope.showNewsFlash = false;
-                    }
-
-                    if (response.articleLocations.Right.length > 0) {
-                        $scope.showNews = true;
-                    } else {
-                        $scope.showNews = false;
-                    }
-
-                    for (var cnt = 0; cnt < response.articleLocations.FrontPage.length; cnt++) {
-                        $scope.content.articleLocations.FrontPage[cnt].articleText.text = $sce.trustAsHtml(atob(response.articleLocations.FrontPage[cnt].articleText.text));
-
-                    }
-                    console.log("Html:");
-                    console.log(JSON.stringify($scope.content));
-
-
-                },
-                function error(errorResponse) {
-                    console.log("Error:" + JSON.stringify(errorResponse));
-                    //$location.path('/loginFailedForm');
-                }
-        );
+        $scope.showfooter = true;        
 
         $scope.submit = function () {
             var postDate = {
@@ -303,7 +313,7 @@ ulboraCmsControllers.controller('LoginCtrl', ['$scope', 'checkCreds', 'setCreds'
                     }
             );
         };
-
+        //$scope.loginActiveClass = "activeLink";
 
     }]);
 

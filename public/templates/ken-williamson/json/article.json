@@ -5,15 +5,7 @@
     "products": true,
     "searchFilter": [
         {
-            "sectionName": "MainPage",
-            "categoryName": null
-        },
-        {
-            "sectionName": "Tech",
-            "categoryName": null
-        },
-        {
-            "sectionName": "About",
+            "sectionName": "Menu",
             "categoryName": null
         }
     ]

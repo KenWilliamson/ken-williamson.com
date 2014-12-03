@@ -2,6 +2,7 @@
 <html>
     <% include head%> 
     <body> 
+<!-- Ulbora CMS Template and theme -->
         <div class="top-menu">
             <div class="top-menu-space">
                 <div class="logo">Ken-Williamson.com</div>
@@ -10,12 +11,12 @@
             <div class="top-menu-menu">
                 <nav>
                     <ul>
-                        <li><a class="" href="/">Home</a></li>
+                        <li class=""><a href="/">Home</a></li>
                         <% for(var i=0; i<content.articleLocations.TopMenu.length; i++) {%>  
                             <li><a href="/article?id=<%= content.articleLocations.TopMenu[i]._id %>"><%= content.articleLocations.TopMenu[i].title %></a></li>           
                             
                         <% } %>  
-                        <li><a class="active" href="/login">Login</a></li>
+                        <li class="activeLink"><a href="/login">Login</a></li>
                     </ul>
                 </nav>
             </div>

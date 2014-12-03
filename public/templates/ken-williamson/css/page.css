@@ -49,6 +49,10 @@
     width: 100%;
     background: #888888;
 }
+.article-tags{
+    float: left;
+    width: 100%;   
+}
 
 @media screen and (min-width: 1200px){
     .article-wrapper{

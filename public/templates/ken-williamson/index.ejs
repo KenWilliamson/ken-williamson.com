@@ -2,6 +2,7 @@
 <html>
    <% include head%> 
     <body>
+<!-- Ulbora CMS Template and theme -->
         <div class="top-menu">
             <div class="top-menu-space">
                 <div class="logo">Ken Williamson</div>
@@ -11,7 +12,7 @@
             <div class="top-menu-menu">
                 <nav>
                     <ul>
-                        <li><a class="active"  href="index.html">Home</a></li>                        
+                        <li class="activeLink"><a href="index.html">Home</a></li>                        
                         <% for(var i=0; i<content.articleLocations.TopMenu.length; i++) {%>  
                             <li><a href="/article?id=<%= content.articleLocations.TopMenu[i]._id %>"><%= content.articleLocations.TopMenu[i].title %></a></li>           
                             
@@ -19,7 +20,7 @@
                         <%if (loggedIn) { %>
                             <li><a class="" href="/logout">Logout</a></li>
                         <% }else{ %>
-                            <li><a class="" href="/login">Login</a></li>
+                            <li class=""><a  href="/login">Login</a></li>
                         <% } %>
                     </ul>
                 </nav>

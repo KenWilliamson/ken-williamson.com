@@ -1,11 +1,19 @@
 <div ng-include src="'partials/menu.html'"></div>   
 <div id="container" class="container">  
-
+<!-- Ulbora CMS Template and theme -->
     <div class="article-wrapper">
         <div class="article-title">{{article.title}}</div>
         <div class="article">
             <div ng-bind-html="articleHtml"></div>   
-        </div>                
+        </div> 
+        <div class="article-tags" ng-switch on="showTags">            
+            <p ng-switch-when="true">Tags: 
+                <span ng-repeat="keyword in article.tag.keyWords" ng-switch="(article.tag.keyWords.length -1) === {{$index}}">
+                    <a href="#!article/{{article._id}}"
+                       rel="tag">{{keyword}}</a> <span ng-switch-when="false">,</span>
+                </span>
+            </p>
+        </div>
     </div> 
 
     <div ng-switch on="showComments">
@@ -25,7 +33,7 @@
                     </div>
                 </form>
             </div>
-            <div class="comments-list" ng-repeat="comment in commentList">
+            <div class="comments-list" ng-repeat="comment in article.commentList">
 
                 <div class="comment-entry">
                     <div class="comment-user">
@@ -37,12 +45,12 @@
                 </div>                        
 
             </div>
+        </div>        
+    </div> 
+    <div ng-switch on="showCommentLoginRequied">
+        <div class="comment-link" ng-switch-when="true">
+            Comments Require Login
         </div>
-    </div>
-
-    <div class="comment-link" ng-switch on="showCommentLoginRequied">
-        <span ng-switch-when="true">Comments Require Login</span>
-
     </div>
 
 
