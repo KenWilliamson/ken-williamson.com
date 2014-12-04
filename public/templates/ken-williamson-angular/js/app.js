@@ -17,6 +17,9 @@ ulboraCmsApp.config(['$routeProvider', '$locationProvider',
                 when('/', {
                     templateUrl: 'partials/main.html',
                     controller: 'MainCtrl'
+                }).when('/archive/:month/:year', {
+                    templateUrl: 'partials/archives.html',
+                    controller: 'ArchiveCtrl'
                 }).when('/article/:a', {
                     templateUrl: 'partials/article.html',
                     controller: 'ArticleCtrl'

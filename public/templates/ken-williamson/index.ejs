@@ -28,25 +28,40 @@
             </div>
         </div>   
         <div id="container" class="container">  
-            <% for(var i=0; i<content.articleLocations.FrontPage.length; i++) {%>                
-                <div class="article-wrapper">
-                    <%if (content.articleLocations.FrontPage[i].showTitle) { %>
-                        <div class="article-title"><%= content.articleLocations.FrontPage[i].title %></div>
-                    <% } %>
+            <div class="page-wrapper">
+                <div class="article-wrapper-inline">
+                    <% for(var i=0; i<content.articleLocations.FrontPage.length; i++) {%>                
+                        <div class="article-wrapper2">
+                            <%if (content.articleLocations.FrontPage[i].showTitle) { %>
+                                <div class="article-title"><%= content.articleLocations.FrontPage[i].title %></div>
+                            <% } %>
                     
-                    <div class="article">
-                        <%- content.articleLocations.FrontPage[i].articleText.text %>
-                    </div> 
-                    <%if (!content.articleLocations.FrontPage[i].fullPage) { %>
-                        <div class="article-read-more"><a class="" href="/article?id=<%= content.articleLocations.FrontPage[i]._id %>">Read More...</a></div>
-                    <% } %>
-                    <% if(content.articleLocations.FrontPage[i].fullPage && content.articleLocations.FrontPage[i].allowComments){ %>
-                        <div class="comment-link"><a class="" href="/article?id=<%= content.articleLocations.FrontPage[i]._id %>">Comments...</a></div>
-                    <% } %>
-                </div>
+                            <div class="article">
+                                <%- content.articleLocations.FrontPage[i].articleText.text %>
+                            </div> 
+                            <%if (!content.articleLocations.FrontPage[i].fullPage) { %>
+                                <div class="article-read-more"><a class="" href="/article?id=<%= content.articleLocations.FrontPage[i]._id %>">Read More...</a></div>
+                            <% } %>
+                            <% if(content.articleLocations.FrontPage[i].fullPage && content.articleLocations.FrontPage[i].allowComments){ %>
+                                <div class="comment-link"><a class="" href="/article?id=<%= content.articleLocations.FrontPage[i]._id %>">Comments...</a></div>
+                            <% } %>
+                        </div>
 
-            <% } %>            
-            
+                    <% } %>  
+                </div>  
+                <div class="archive-wrapper-inline">
+                    <div class="archive-wrapper">
+                        <div class="archive-label">
+                            Archives
+                        </div>
+                        <% for(var i=0; i<content.dates.length; i++) {%>    
+                            <div>
+                                <a class="" href="index.html?month=<%= content.dates[i].month %>&year=<%= content.dates[i].year %>"><%= content.dates[i].dateLabel %></a>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
         </div> 
         <div class="footer-long">
             Copyright 2014 Ken Williamson | Powered by Ulbora CMS

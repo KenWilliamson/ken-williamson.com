@@ -84,6 +84,97 @@ ulboraCmsControllers.controller('MainCtrl', ['$scope', 'checkCreds', '$location'
 
     }]);
 
+ulboraCmsControllers.controller('ArchiveCtrl', ['$scope', 'checkCreds', '$location', '$http', 'getToken', 'Content', '$sce', '$routeParams', 
+    function ArchiveCtrl($scope, checkCreds, $location, $http, getToken, Content, $sce, $routeParams) {
+        $scope.brandColor = "color: white;";        
+        if (checkCreds() === true) {
+            $scope.loggedIn = true;
+        } else {
+            $scope.loggedIn = false;
+        }
+        $scope.showfooter = false;
+        var searchMonth = $routeParams.month;
+        var searchYear = $routeParams.year;
+        if(searchMonth !== undefined && searchMonth !== null){
+            searchMonth = parseInt(searchMonth);
+        }
+        if(searchYear !== undefined && searchYear !== null){
+            searchYear = parseInt(searchYear);
+        }
+
+        $http.defaults.headers.common['Authorization'] = 'Basic ' + getToken();
+        var postData = {
+            "frontPage": false,
+            "links": true,
+            "articles": true,
+            "products": true,
+            "searchFilter": [
+                {
+                    "sectionName": "MainPage",
+                    "categoryName": null
+                },
+                {
+                    "sectionName": "Tech",
+                    "categoryName": null
+                },
+                {
+                    "sectionName": "About",
+                    "categoryName": null
+                },
+                {
+                    "sectionName": "Menu",
+                    "categoryName": null
+                }
+            ],
+            "searchDateFilter":{
+                "month": searchMonth,
+                "year" : searchYear
+            }
+
+        };
+        console.log("json request:" + JSON.stringify(postData));
+        Content.getContent({}, postData,
+                function success(response) {
+                    //alert($scope.challenge.question);
+                    console.log("Success:" + JSON.stringify(response));
+
+                    $scope.content = response;
+                    if (response.links !== null && response.links.length > 0) {
+                        $scope.showLinks = true;
+                    } else {
+                        $scope.showLinks = false;
+                    }
+
+                    if (response.articleLocations.Left.length > 0) {
+                        $scope.showNewsFlash = true;
+                    } else {
+                        $scope.showNewsFlash = false;
+                    }
+
+                    if (response.articleLocations.Right.length > 0) {
+                        $scope.showNews = true;
+                    } else {
+                        $scope.showNews = false;
+                    }
+
+                    for (var cnt = 0; cnt < response.articleLocations.Center.length; cnt++) {
+                        $scope.content.articleLocations.Center[cnt].articleText.text = $sce.trustAsHtml(atob(response.articleLocations.Center[cnt].articleText.text));
+
+                    }
+                    $scope.showfooter = true;
+                    console.log("Html:");
+                    console.log(JSON.stringify($scope.content));
+
+
+                },
+                function error(errorResponse) {
+                    console.log("Error:" + JSON.stringify(errorResponse));
+                    //$location.path('/loginFailedForm');
+                }
+        );
+        $scope.homeActiveClass = "activeLink";
+
+    }]);
 
 ulboraCmsControllers.controller('ArticleCtrl', ['$scope', 'checkCreds', '$location', '$http', 'getToken', '$routeParams', 'Article', 'Content', '$sce',
     function ArticleCtrl($scope, checkCreds, $location, $http, getToken,  $routeParams, Article, Content, $sce) {
@@ -469,4 +560,14 @@ ulboraCmsControllers.controller('PasswordResetCtrl', ['$scope', 'Challenge', 'Pa
 
         };
 
+    }]);
+
+ulboraCmsControllers.controller('ProcessSuccessCtrl', ['$scope', 'deleteCreds', '$location', '$http',
+    function ProcessSuccessCtrl($scope, deleteCreds, $location, $http) {
+         $scope.loggedIn = false;
+    }]);
+
+ulboraCmsControllers.controller('ProcessFailureCtrl', ['$scope', 'deleteCreds', '$location', '$http',
+    function ProcessFailureCtrl($scope, deleteCreds, $location, $http) {
+         $scope.loggedIn = false;
     }]);

@@ -12,6 +12,26 @@ exports.getContentList = function (req, filter, loggedIn, callback) {
     };
     console.log("filter data in content list: " + JSON.stringify(filter));
     var browserLan = req.headers["accept-language"];
+    
+    var useMonth = false;
+    var useYear = false;
+    var month = req.query.month;
+    var year = req.query.year;
+    if(month !== undefined && month !== null){
+        month = parseInt(month);
+        useMonth = true;
+    }
+    if(year !== undefined && year !== null){
+        year = parseInt(year);
+        useYear = true;
+    }
+    if(useMonth && useYear){
+        var searchDateFilter = {
+            month: month,
+            year: year
+        };
+        filter.searchDateFilter = searchDateFilter;
+    }
     var locations = [];
     locations.push("FrontPage");
     var Location = db.getLocation();
