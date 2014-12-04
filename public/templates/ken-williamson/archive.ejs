@@ -30,20 +30,20 @@
         <div id="container" class="container">  
             <div class="page-wrapper">
                 <div class="article-wrapper-inline">
-                    <% for(var i=0; i<content.articleLocations.FrontPage.length; i++) {%>                
+                    <% for(var i=0; i<content.articleLocations.Center.length; i++) {%>                
                         <div class="article-wrapper2">
-                            <%if (content.articleLocations.FrontPage[i].showTitle) { %>
-                                <div class="article-title"><%= content.articleLocations.FrontPage[i].title %></div>
+                            <%if (content.articleLocations.Center[i].showTitle) { %>
+                                <div class="article-title"><%= content.articleLocations.Center[i].title %></div>
                             <% } %>
                     
                             <div class="article">
-                                <%- content.articleLocations.FrontPage[i].articleText.text %>
+                                <%- content.articleLocations.Center[i].articleText.text %>
                             </div> 
-                            <%if (!content.articleLocations.FrontPage[i].fullPage) { %>
-                                <div class="article-read-more"><a class="" href="/article?id=<%= content.articleLocations.FrontPage[i]._id %>">Read More...</a></div>
+                            <%if (!content.articleLocations.Center[i].fullPage) { %>
+                                <div class="article-read-more"><a class="" href="/article?id=<%= content.articleLocations.Center[i]._id %>">Read More...</a></div>
                             <% } %>
-                            <% if(content.articleLocations.FrontPage[i].fullPage && content.articleLocations.FrontPage[i].allowComments){ %>
-                                <div class="comment-link"><a class="" href="/article?id=<%= content.articleLocations.FrontPage[i]._id %>">Comments...</a></div>
+                            <% if(content.articleLocations.Center[i].fullPage && content.articleLocations.Center[i].allowComments){ %>
+                                <div class="comment-link"><a class="" href="/article?id=<%= content.articleLocations.Center[i]._id %>">Comments...</a></div>
                             <% } %>
                         </div>
 

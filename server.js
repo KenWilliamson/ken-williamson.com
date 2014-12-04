@@ -413,6 +413,10 @@ var initializeWebApp = function (self) {
                 var requestedPage = req.originalUrl;
                 var indexOfPeriod = requestedPage.indexOf(".");
                 var filerName = requestedPage.substring(0, indexOfPeriod);
+                filerName = filerName.replace("/", "");
+                if(requestedPage.length > indexOfPeriod + 5){
+                    requestedPage = requestedPage.substring(0, indexOfPeriod + 5);
+                }                
                 console.log("filter name: " + filerName);
                 var revisedPage = requestedPage.replace("html", "ejs");
                 //var revisedPage = requestedPage.replace("html", "hbs");

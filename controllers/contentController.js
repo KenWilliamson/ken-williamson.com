@@ -42,6 +42,7 @@ exports.getContentList = function (req, filter, loggedIn, callback) {
                 locations.push(foundLoc.name);
             }
         }
+        console.log("filter in controller: " + JSON.stringify(filter));
         contentManager.getContentList(filter, creds, browserLan, function (result) {
             console.log("in callback");
             console.log("articleLocation: " + JSON.stringify(result));
