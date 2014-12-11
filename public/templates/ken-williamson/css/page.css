@@ -81,6 +81,15 @@
     width: 100%;
     background: #888888;
 }
+.footer-long a{
+    color: white;
+}
+.footer-long a:visited{
+    color: white;
+}
+.footer-long a:hover{
+    color: red;
+}
 .article-tags{
     float: left;
     width: 100%;   
