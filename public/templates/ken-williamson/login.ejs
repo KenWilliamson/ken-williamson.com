@@ -12,10 +12,12 @@
                 <nav>
                     <ul>
                         <li class=""><a href="/">Home</a></li>
-                        <% for(var i=0; i<content.articleLocations.TopMenu.length; i++) {%>  
-                            <li><a href="/article?id=<%= content.articleLocations.TopMenu[i]._id %>"><%= content.articleLocations.TopMenu[i].title %></a></li>           
+                        <% if(content.length >0) { %>
+                            <% for(var i=0; i<content.articleLocations.TopMenu.length; i++) {%>  
+                                <li><a href="/article?id=<%= content.articleLocations.TopMenu[i]._id %>"><%= content.articleLocations.TopMenu[i].title %></a></li>           
                             
-                        <% } %>  
+                            <% } %>  
+                        <% } %>
                         <li class="activeLink"><a href="/login">Login</a></li>
                     </ul>
                 </nav>
