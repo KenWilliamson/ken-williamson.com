@@ -20,18 +20,18 @@ body{
 
 @media screen and (max-width: 1200px){
     body{     
-        background-size: 150%; 
+        background-size: 130%; 
     }
 }
 
 @media screen and (max-width: 800px){
     body{     
-        background-size: 180%; 
+        background-size: 200%; 
     }
 }
 
 @media screen and (max-width: 480px){
     body{     
-        background-size: 200%; 
+        background-size: 300%; 
     }
 }

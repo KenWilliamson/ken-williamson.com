@@ -13,10 +13,7 @@
 }
 
 .register-form-wrapper{
-    float: left;
-    width: 90%;
-    margin: 2% 0 2% 5%;
-    
+    float: left; 
 }
 .register-label{
     float: left;
@@ -92,7 +89,12 @@
     .register-outer-form-wrapper{       
         width: 50%;
         margin: 15% 0 0 25%;  
-        
+
+    }
+    .register-form-wrapper{        
+        width: 90%;
+        margin: 2% 0 2% 5%;
+
     }
 
 }
@@ -100,22 +102,37 @@
 @media screen and (max-width: 1200px){
     .register-outer-form-wrapper{       
         width: 50%;
-        margin: 5% 0 0 25%;         
+        margin: 20% 0 0 25%;         
+    }
+    .register-form-wrapper{        
+        width: 90%;
+        margin: 2% 0 2% 5%;
+
     }
 }
 
 @media screen and (max-width: 770px){
     .register-outer-form-wrapper{       
-        width: 50%;
-        margin: 5% 0 0 25%;       
+        width: 70%;
+        margin: 25% 0 0 15%;       
+    }
+    .register-form-wrapper{        
+        width: 90%;
+        margin: 2% 0 2% 5%;
+
     }
 }
 
 
 @media screen and (max-width: 480px){
     .register-outer-form-wrapper{       
-        width: 70%;
-        margin: 5% 0 0 15%;       
+        width: 100%;
+        margin: 30% 0 0 0%;       
+    }
+    .register-form-wrapper{        
+        width: 100%;
+        margin: 2% 0 2% 0%;
+
     }
 }
 

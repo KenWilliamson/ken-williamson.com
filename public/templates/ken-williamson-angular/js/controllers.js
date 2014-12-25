@@ -12,7 +12,7 @@ ulboraCmsControllers.controller('MainCtrl', ['$scope', 'checkCreds', '$location'
         } else {
             $scope.loggedIn = false;
         }
-        $scope.showfooter = false;
+        $scope.showContent = false;
 
         $http.defaults.headers.common['Authorization'] = 'Basic ' + getToken();
         var postData = {
@@ -69,7 +69,7 @@ ulboraCmsControllers.controller('MainCtrl', ['$scope', 'checkCreds', '$location'
                         $scope.content.articleLocations.FrontPage[cnt].articleText.text = $sce.trustAsHtml(atob(response.articleLocations.FrontPage[cnt].articleText.text));
 
                     }
-                    $scope.showfooter = true;
+                    $scope.showContent = true;
                     console.log("Html:");
                     console.log(JSON.stringify($scope.content));
 
@@ -92,7 +92,7 @@ ulboraCmsControllers.controller('ArchiveCtrl', ['$scope', 'checkCreds', '$locati
         } else {
             $scope.loggedIn = false;
         }
-        $scope.showfooter = false;
+        $scope.showContent = false;
         var searchMonth = $routeParams.month;
         var searchYear = $routeParams.year;
         if(searchMonth !== undefined && searchMonth !== null){
@@ -161,7 +161,7 @@ ulboraCmsControllers.controller('ArchiveCtrl', ['$scope', 'checkCreds', '$locati
                         $scope.content.articleLocations.Center[cnt].articleText.text = $sce.trustAsHtml(atob(response.articleLocations.Center[cnt].articleText.text));
 
                     }
-                    $scope.showfooter = true;
+                    $scope.showContent = true;
                     console.log("Html:");
                     console.log(JSON.stringify($scope.content));
 
@@ -186,7 +186,7 @@ ulboraCmsControllers.controller('ArticleCtrl', ['$scope', 'checkCreds', '$locati
         }
         $scope.showComments = false;
         $scope.showCommentLoginRequied = false;
-        $scope.showfooter = false;
+        $scope.showContent = false;
         $scope.showTags = false;
         $http.defaults.headers.common['Authorization'] = 'Basic ' + getToken();
 
@@ -230,7 +230,7 @@ ulboraCmsControllers.controller('ArticleCtrl', ['$scope', 'checkCreds', '$locati
 
             }
 
-            $scope.showfooter = true;
+            $scope.showContent = true;
 
 
         },

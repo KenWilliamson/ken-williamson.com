@@ -1,7 +1,7 @@
 .page-wrapper{
     float: left;
     width: 100%;
-   
+
 }
 
 .article{
@@ -79,7 +79,7 @@
 
 .footer-long{
     width: 100%;
-    background: #888888;
+    background: #888888;    
 }
 .footer-long a{
     color: white;
@@ -98,7 +98,7 @@
 
 @media screen and (min-width: 1200px){
     .page-wrapper{
-        margin: 15% 0% 0% 0%;
+        margin: 15% 0% 10% 0%;
     }
     .article-wrapper-inline{
         width: 80%;
@@ -145,7 +145,8 @@
         color: white;
     }
     .footer-long{
-        margin: 40% 0 0 0;
+        margin: 80% 0 0 0;
+        padding: 5px 0 0 0;
         height: 100px;
         text-align: center;
         color: white;
@@ -155,8 +156,8 @@
 
 @media screen and (max-width: 1200px){
     .page-wrapper{
-        margin: 15% 0% 0% 0%;
-        
+        margin: 15% 0% 10% 0%;
+
     }
     .article-wrapper-inline{
         width: 80%;
@@ -200,7 +201,8 @@
         color: white;
     }
     .footer-long{
-        margin: 40% 0 0 0;
+        margin: 80% 0 0 0;
+        padding: 5px 0 0 0;
         height: 100px;
         text-align: center;
         color: white;
@@ -209,8 +211,8 @@
 
 @media screen and (max-width: 800px){
     .page-wrapper{
-        margin: 24% 0% 0% 0%;
-        
+        margin: 24% 0% 10% 0%;
+
     }
     .article-wrapper-inline{
         width: 80%;
@@ -255,7 +257,8 @@
         font-size: 8pt;
     }
     .footer-long{
-        margin: 50% 0 0 0;
+        margin: 80% 0 0 0;
+        padding: 5px 0 0 0;
         height: 100px;
         text-align: center;
         color: white;
@@ -265,8 +268,8 @@
 
 @media screen and (max-width: 480px){
     .page-wrapper{
-        margin: 28% 0% 0% 0%;
-        
+        margin: 28% 0% 10% 0%;
+
     }
     .article-wrapper-inline{
         width: 100%;
@@ -303,6 +306,7 @@
     }
     .footer{
         margin: 20% 0 0 0;
+        padding: 5% 0 0 0;
         height: 100px;
         text-align: center;
         color: white;
@@ -310,6 +314,7 @@
     }
     .footer-long{
         margin: 80% 0 0 0;
+        padding: 5px 0 0 0;
         height: 100px;
         text-align: center;
         color: white;
