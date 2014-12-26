@@ -9,7 +9,7 @@ body{
     margin: 0 0 0 0;
     padding: 0 0 0 0;
     color: darkslategray;
-    
+
 }
 
 @media screen and (min-width: 1200px){
@@ -26,12 +26,12 @@ body{
 
 @media screen and (max-width: 800px){
     body{     
-        background-size: 200%; 
+        background: threedlightshadow;  
     }
 }
 
 @media screen and (max-width: 480px){
     body{     
-        background-size: 300%; 
+        background: threedlightshadow;
     }
 }
